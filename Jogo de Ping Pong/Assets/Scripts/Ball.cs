@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     public float VelocidadeBola;
     public Rigidbody2D oRigidbody2D;
 
+    public AudioSource SomBola;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +20,10 @@ public class Ball : MonoBehaviour
     void Update()
     {
         
+    }
+
+   void OnCollisionEnter2D(Collision2D other) 
+   {
+        SomBola.Play();
     }
 }
