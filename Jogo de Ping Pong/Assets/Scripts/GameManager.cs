@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject painelCredito;
 
+    public GameObject painelMenu;
+
     public Animator TransitionAnim;
     
     // Start is called before the first frame update
@@ -61,11 +63,13 @@ public class GameManager : MonoBehaviour
     public void abrircreditos()
     {
         painelCredito.SetActive(true);
+        painelMenu.SetActive(false);
     }
 
     public void fecharcreditos()
     {
         painelCredito.SetActive(false);
+        painelMenu.SetActive(true);
     }
 
     public void Transition(string sceneName)
