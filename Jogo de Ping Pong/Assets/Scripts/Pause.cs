@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
 
     public Transform PauseMenu;
+
+    [SerializeField] GameObject PongStarting;
+    [SerializeField] GameObject PongEnding;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        PongStart();
     }
 
     // Update is called once per frame
@@ -36,4 +41,22 @@ public class Pause : MonoBehaviour
          PauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1;
     }
+
+    public void Exit() 
+    {
+        print("Saiu");   
+        Application.Quit();
+    }
+
+    IEnumerator StartingGame() 
+    {
+        PongStarting.SetActive(true);
+    yield return new WaitForSeconds(3f);
+    }
+
+    public void PongStart() 
+    {
+        StartCoroutine("StartingGame");
+    }
+
 }

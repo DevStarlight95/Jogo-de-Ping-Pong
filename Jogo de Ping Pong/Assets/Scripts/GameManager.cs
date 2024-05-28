@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject painelMenu;
 
-    public Animator TransitionAnim;
+    public Animator Animator;
     
     // Start is called before the first frame update
     void Start()
@@ -72,15 +72,10 @@ public class GameManager : MonoBehaviour
         painelMenu.SetActive(true);
     }
 
-    public void Transition(string sceneName)
+    public void Quit()
     {
-        StartCoroutine(LoadScene(sceneName));
-    }
-
-    IEnumerator LoadScene(string sceneName){
-        yield return new WaitForSeconds(1f);
-
-        SceneManager.LoadScene(sceneName);
+        print("Saiu");
+     Application.Quit();
     }
 
 }
